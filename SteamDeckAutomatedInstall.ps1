@@ -17,7 +17,7 @@ Write-Host "Downloading Required Files"
 Write-Host "-----------------------------------------------------------------------"
 
 Write-Host -NoNewline "- APU Chipset Drivers from Valve: "
-Invoke-WebRequest -URI "https://steamdeck-packages.steamos.cloud/misc/windows/drivers/Aerith%20Windows%20Driver_2302270303.zip" -OutFile ".\APU_Drivers.zip"
+Invoke-WebRequest -URI "https://steamdeck-packages.steamos.cloud/misc/windows/drivers/Aerith_Sephiroth_Windows_Driver_2309131113.zip" -OutFile ".\APU_Drivers.zip"
 Write-Host -ForegroundColor Green "Done"
 
 Write-Host -NoNewline "- Audio Drivers 1/2 from Valve (cs35l41): "
@@ -113,7 +113,7 @@ Write-Host "--------------------------------------------------------------------
 
 Write-Host -NoNewline "- Installing APU Chipset: "
 Expand-Archive ".\APU_Drivers.zip" -DestinationPath ".\APU_Drivers" -Force
-Start-Process ".\APU_Drivers\GFX Driver_41.1.1.30310_230227a-388790E-2302270303\Setup.exe" -Wait | Out-Null
+Start-Process ".\APU_Drivers\GFX Driver_48.0.8.30928_230906a1-394729E- 2309131113\Setup.exe" -Wait | Out-Null
 $apicall::SystemParametersInfo(0x009F, 4294967295, $null, 1) | Out-Null
 Write-Host -ForegroundColor Green "Done"
 
