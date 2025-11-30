@@ -40,10 +40,6 @@ Write-Host -NoNewline "- MicroSD Card Reader Drivers from Windows Update: "
 Invoke-WebRequest -URI "https://catalog.s.download.windowsupdate.com/c/msdownload/update/driver/drvs/2022/10/4f20ec00-bee5-4df2-873c-3a49cf4d4f8b_0aaf931a756473e6f8be1ef890fb60c283e9e82e.cab" -OutFile ".\MicroSD_Drivers.cab"
 Write-Host -ForegroundColor Green "Done"
 
-Write-Host -NoNewline "- VC++ All in One Redistributable: "
-Invoke-WebRequest -URI "https://github.com/abbodi1406/vcredist/releases/download/v0.70.0/VisualCppRedist_AIO_x86_x64_70.zip" -OutFile ".\VCpp.zip"
-Write-Host -ForegroundColor Green "Done"
-
 Write-Host -NoNewline "- DirectX Web Setup: "
 Invoke-WebRequest -URI "https://download.microsoft.com/download/1/7/1/1718CCC4-6315-4D8E-9543-8E28A4E18C4C/dxwebsetup.exe" -OutFile ".\DirectX.exe"
 Write-Host -ForegroundColor Green "Done"
@@ -154,11 +150,6 @@ Write-Host
 Write-Host "Installing Redistributables"
 Write-Host "-----------------------------------------------------------------------"
 
-Write-Host -NoNewline "- VC++ All in One: "
-Expand-Archive ".\VCpp.zip" -DestinationPath ".\Vcpp" -Force
-Start-Process .\Vcpp\VisualCppRedist_AIO_x86_x64.exe /ai -Wait
-Write-Host -ForegroundColor Green "Done"
-
 Write-Host -NoNewline "- DirectX Web Setup: "
 Start-Process -FilePath ".\DirectX.exe" -ArgumentList "/Q" -Wait
 Write-Host -ForegroundColor Green "Done"
@@ -238,10 +229,6 @@ Write-Host -ForegroundColor Green "Done"
 
 Write-Host -NoNewline "- Setting PowerControl to run on login: "
 Start-Process -FilePath "C:\DeckUtils\SteamDeckTools\PowerControl.exe" -ArgumentList "-run-on-startup"
-Write-Host -ForegroundColor Green "Done"
-
-Write-Host -NoNewline "- Setting SteamController to run on login: "
-Start-Process -FilePath "C:\DeckUtils\SteamDeckTools\SteamController.exe" -ArgumentList "-run-on-startup"
 Write-Host -ForegroundColor Green "Done"
 
 Write-Host -NoNewline "- Creating Desktop Shortcuts for SteamDeckTools: "
